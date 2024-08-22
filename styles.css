@@ -37,28 +37,28 @@ body {
   align-items: center;
   z-index: 1;
   width: 100%;
-  max-width: 400px;
-  padding: 20px;
+  max-width: 90vw;
+  padding: 10px;
   box-sizing: border-box;
 }
 
 .row {
   display: flex;
   justify-content: center;
-  margin: 10px 0;
+  margin: 2vh 0;
 }
 
 .card {
-  width: 80px;
-  height: 120px;
-  margin: 0 5px;
+  width: 25vw;
+  height: 30vh;
+  margin: 0 3vw;
   background-color: #ccc;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 4vw;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 2vw;
   text-align: center;
   transition: transform 0.3s ease, background-color 0.3s ease;
   color: #000;
@@ -102,26 +102,26 @@ body {
 
 .modal-content {
   background: #fff;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 5vh;
+  border-radius: 2vw;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .modal-content p {
-  margin: 0 0 20px;
-  font-size: 18px;
+  margin: 0 0 3vh;
+  font-size: 5vw;
   font-weight: bold;
   color: #333;
 }
 
 .modal-content button {
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 2vh 5vh;
+  font-size: 4vw;
   color: #fff;
   background-color: #4caf50;
   border: none;
-  border-radius: 5px;
+  border-radius: 2vw;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -134,20 +134,45 @@ body {
   display: none;
 }
 
-/* Адаптация под мобильные устройства */
+#scoreboard {
+    margin-bottom: 3vh;
+    font-size: 4vw;
+    color: #333;
+}
+
+#next-round-button {
+    padding: 2vh 5vh;
+    font-size: 4vw;
+    color: #fff;
+    background-color: #2196f3;
+    border: none;
+    border-radius: 2vw;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#next-round-button:hover {
+    background-color: #1976d2;
+}
+
+/* Адаптация под маленькие экраны */
 @media (max-width: 480px) {
   .card {
-      width: 70px;
-      height: 105px;
-      font-size: 14px;
+      width: 40vw;
+      height: 30vh;
+      font-size: 6vw;
   }
 
   .modal-content p {
-      font-size: 16px;
+      font-size: 7vw;
   }
 
   .modal-content button {
-      padding: 8px 16px;
-      font-size: 14px;
+      padding: 3vh 6vw;
+      font-size: 6vw;
+  }
+
+  #scoreboard {
+      font-size: 6vw;
   }
 }
