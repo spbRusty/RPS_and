@@ -51,7 +51,7 @@ body {
 .card {
   width: 25vw;
   height: 30vh;
-  margin: 0 3vw;
+  margin: 0 2vw;
   background-color: #ccc;
   display: flex;
   justify-content: center;
@@ -67,11 +67,11 @@ body {
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.15);
 }
 
 .card:active {
-  transform: scale(0.95);
+  transform: scale(0.60);
 }
 
 #top-row .card {
@@ -156,23 +156,44 @@ body {
 }
 
 /* Адаптация под маленькие экраны */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .card {
-      width: 40vw;
-      height: 30vh;
-      font-size: 6vw;
+    height: 30vh;
+    max-width: 30vw;
+    font-size: 4.5vw;
   }
 
   .modal-content p {
-      font-size: 7vw;
+    font-size: 4.5vw;
   }
 
   .modal-content button {
-      padding: 3vh 6vw;
-      font-size: 6vw;
+    padding: 2vh 4vw;
+    font-size: 4.5vw;
   }
 
   #scoreboard {
-      font-size: 6vw;
+    font-size: 4.5vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    height: 15vh;
+    max-width: 32vw;
+    font-size: 5vw;
+  }
+
+  .modal-content p {
+    font-size: 5vw;
+  }
+
+  .modal-content button {
+    padding: 2vh 4vw;
+    font-size: 5vw;
+  }
+
+  #scoreboard {
+    font-size: 5vw;
   }
 }
