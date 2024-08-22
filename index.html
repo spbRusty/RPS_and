@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Камень, Ножницы, Бумага</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="game-container">
+        <div class="row" id="top-row">
+            <div class="card" data-type="rock"></div>
+            <div class="card" data-type="scissors"></div>
+            <div class="card" data-type="paper"></div>
+        </div>
+        <div class="row" id="bottom-row">
+            <div class="card" data-type="rock" onclick="playGame('rock')">Камень</div>
+            <div class="card" data-type="scissors" onclick="playGame('scissors')">Ножницы</div>
+            <div class="card" data-type="paper" onclick="playGame('paper')">Бумага</div>
+        </div>
+    </div>
+    <div id="result" class="result-hidden"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
