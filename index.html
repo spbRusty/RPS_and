@@ -20,7 +20,13 @@
             <div class="card" data-type="paper" onclick="playGame('paper')">Бумага</div>
         </div>
     </div>
-    <div id="result" class="result-hidden"></div>
+    <!-- Модальное окно с результатом -->
+    <div id="result-modal" class="modal hidden">
+        <div class="modal-content">
+            <p id="result-message"></p>
+            <button onclick="resetGame()">Ещё раз</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
