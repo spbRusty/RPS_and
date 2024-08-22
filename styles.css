@@ -158,7 +158,7 @@ body {
 /* Адаптация под маленькие экраны */
 @media (max-width: 768px) {
   .card {
-    height: 30vh;
+    height: 40vh;
     max-width: 30vw;
     font-size: 4.5vw;
   }
