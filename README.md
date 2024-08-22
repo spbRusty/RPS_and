@@ -1,3 +1,3 @@
 # RPS_and
 
-[Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/spbRusty/RPS_and)
+Тест разной анимации на примере просто игры для веб.
