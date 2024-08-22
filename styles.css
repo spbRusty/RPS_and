@@ -179,7 +179,7 @@ body {
 
 @media (max-width: 480px) {
   .card {
-    height: 15vh;
+    height: 25vh;
     max-width: 32vw;
     font-size: 5vw;
   }
