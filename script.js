@@ -1,103 +1,209 @@
-let playerScore = 0;
-let computerScore = 0;
-let roundsPlayed = 0;
-
-function getRandomCard() {
-  const cards = ['rock', 'scissors', 'paper'];
-  const randomIndex = Math.floor(Math.random() * cards.length);
-  return cards[randomIndex];
+/* Основные стили */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
 }
 
-function determineWinner(playerChoice, computerChoice) {
-  if (playerChoice === computerChoice) {
-      return "Ничья!";
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(270deg, #ff7e79, #ffd4a6, #9bc1bc, #a17ea1);
+  background-size: 600% 600%;
+  animation: gradientAnimation 15s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradientAnimation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+  width: 100%;
+  max-width: 90vw;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin: 2vh 0;
+}
+
+.card {
+  width: 25vw;
+  height: 30vh;
+  margin: 0 2vw;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4vw;
+  cursor: pointer;
+  border-radius: 2vw;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  color: #000;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+  transform: scale(1.15);
+}
+
+.card:active {
+  transform: scale(0.60);
+}
+
+#top-row .card {
+  background-color: #777;
+  color: transparent;
+  transform: rotateY(180deg);
+  transition: transform 0.6s ease-in-out;
+}
+
+#top-row .card.revealed {
+  transform: rotateY(0deg);
+  color: #fff;
+  background-color: #8fa5b6;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 5vh;
+  border-radius: 2vw;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content p {
+  margin: 0 0 3vh;
+  font-size: 5vw;
+  font-weight: bold;
+  color: #333;
+}
+
+.modal-content button {
+  padding: 2vh 5vh;
+  font-size: 4vw;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 2vw;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+  background-color: #45a049;
+}
+
+.hidden {
+  display: none;
+}
+
+#scoreboard {
+    margin-bottom: 3vh;
+    font-size: 4vw;
+    color: #333;
+}
+
+#next-round-button {
+    padding: 2vh 5vh;
+    font-size: 4vw;
+    color: #fff;
+    background-color: #2196f3;
+    border: none;
+    border-radius: 2vw;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#next-round-button:hover {
+    background-color: #1976d2;
+}
+
+/* Адаптация под маленькие экраны */
+@media (max-width: 768px) {
+  .card {
+    height: 40vh;
+    max-width: 30vw;
+    font-size: 4.5vw;
   }
 
-  if (
-      (playerChoice === 'rock' && computerChoice === 'scissors') ||
-      (playerChoice === 'scissors' && computerChoice === 'paper') ||
-      (playerChoice === 'paper' && computerChoice === 'rock')
-  ) {
-      return "Вы выиграли!";
-  } else {
-      return "Вы проиграли!";
+  .modal-content p {
+    font-size: 4.5vw;
+  }
+
+  .modal-content button {
+    padding: 2vh 4vw;
+    font-size: 4.5vw;
+  }
+
+  #scoreboard {
+    font-size: 4.5vw;
   }
 }
 
-function updateScoreboard() {
-    const scoreboard = document.getElementById('result-message');
-    scoreboard.innerHTML = `Счёт: Вы - ${playerScore}, Компьютер - ${computerScore}<br>Раунд ${roundsPlayed + 1}`;
+@media (max-width: 480px) {
+  .card {
+    height: 25vh;
+    max-width: 32vw;
+    font-size: 5vw;
+  }
+
+  .modal-content p {
+    font-size: 5vw;
+  }
+
+  .modal-content button {
+    padding: 2vh 4vw;
+    font-size: 5vw;
+  }
+
+  #scoreboard {
+    font-size: 5vw;
+  }
 }
 
-function checkGameWinner() {
-    if (playerScore === 2 || computerScore === 2) {
-        const resultText = playerScore === 2 ? "Вы выиграли матч!" : "Вы проиграли матч!";
-        const resultMessage = document.getElementById('result-message');
-        resultMessage.textContent = resultText;
-        const nextRoundButton = document.getElementById('next-round-button');
-        nextRoundButton.textContent = 'Новая игра';
-        nextRoundButton.onclick = resetGame;
-        return true;
-    }
-    return false;
-}
-
-function playGame(playerChoice) {
-    const computerChoice = getRandomCard();
-    roundsPlayed++;
-
-    // Показать выбранную компьютером карту
-    const topRowCards = document.querySelectorAll('#top-row .card');
-    topRowCards.forEach(card => {
-        if (card.getAttribute('data-type') === computerChoice) {
-            card.textContent = computerChoice === 'rock' ? 'Камень' : computerChoice === 'scissors' ? 'Ножницы' : 'Бумага';
-            card.style.color = '#fff';
-            card.style.backgroundColor = '#8fa5b6';
-            card.classList.add('revealed');
-        }
-    });
-
-    const resultText = determineWinner(playerChoice, computerChoice);
-    if (resultText === "Вы выиграли!") {
-        playerScore++;
-    } else if (resultText === "Вы проиграли!") {
-        computerScore++;
-    }
-
-    setTimeout(() => {
-        updateScoreboard();
-        const resultModal = document.getElementById('result-modal');
-        resultModal.classList.remove('hidden');
-
-        const nextRoundButton = document.getElementById('next-round-button');
-        nextRoundButton.onclick = startNextRound;
-        
-        if (!checkGameWinner()) {
-            nextRoundButton.textContent = 'Дальше';
-        }
-    }, 600); // Задержка для завершения анимации переворота карты
-}
-
-function startNextRound() {
-    const resultModal = document.getElementById('result-modal');
-    resultModal.classList.add('hidden');
-
-    const topRowCards = document.querySelectorAll('#top-row .card');
-    topRowCards.forEach(card => {
-        card.textContent = '';
-        card.style.color = 'transparent';
-        card.style.backgroundColor = '#777';
-        card.classList.remove('revealed');
-        card.style.transform = 'rotateY(180deg)';
-        setTimeout(() => {
-            card.style.transform = '';
-        }, 10);
-    });
-}
-
-function resetGame() {
-    playerScore = 0;
-    computerScore = 0;
-    roundsPlayed = 0;
-    startNextRound();
+#particles-js{
+  position: fixed;
+  z-index: 1;
+  left:0;
+  top:0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(90deg,#F24645  ,#4F00BC );
 }
