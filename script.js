@@ -18,9 +18,9 @@ function determineWinner(playerChoice, computerChoice) {
       (playerChoice === 'scissors' && computerChoice === 'paper') ||
       (playerChoice === 'paper' && computerChoice === 'rock')
   ) {
-      return "Вы выиграли!";
+      return "Вы1 выиграли!";
   } else {
-      return "Вы проиграли!";
+      return "Вы1 проиграли!";
   }
 }
 
@@ -106,7 +106,7 @@ window.Telegram.WebApp.ready();
 
 function callDonat() {
     // Используем Telegram Web Apps API для взаимодействия с ботом
-    Telegram.WebApp.sendData('/pay');  // Отправляем команду на донат
+    window.Telegram.WebApp.sendData('/pay');  // Отправляем команду на донат
 };
 
 
