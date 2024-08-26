@@ -32,9 +32,11 @@
     <script src="particles.js"></script>
     <script src="script.js" defer></script>
     <script>
+        window.Telegram.WebApp.initData.ready()
+        
         function sendUserData() {
             // Получаем initData
-            const initData = Telegram.WebApp.initData;
+            const initData = window.Telegram.WebApp.initData;
 
             // Формируем данные для отправки на сервер бота
             const botToken = "7416830543:AAHgWiUb-J-7J940EOnt7HokuxiDuYELPmM";
