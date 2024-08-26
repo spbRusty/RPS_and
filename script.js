@@ -18,15 +18,15 @@ function determineWinner(playerChoice, computerChoice) {
       (playerChoice === 'scissors' && computerChoice === 'paper') ||
       (playerChoice === 'paper' && computerChoice === 'rock')
   ) {
-      return "Вы1 выиграли!";
+      return "Вы выиграли!";
   } else {
-      return "Вы1 проиграли!";
+      return "Вы проиграли!";
   }
 }
 
 function updateScoreboard() {
     const scoreboard = document.getElementById('result-message');
-    scoreboard.innerHTML = `Счёт:<br>Вы - ${playerScore}, Компьютер - ${computerScore}<br>Раунд ${roundsPlayed + 1}`;
+    scoreboard.innerHTML = `Счёт1:<br>Вы - ${playerScore}, Компьютер - ${computerScore}<br>Раунд ${roundsPlayed + 1}`;
 }
 
 function checkGameWinner() {
