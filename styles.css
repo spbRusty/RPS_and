@@ -140,7 +140,8 @@ body {
     color: #333;
 }
 
-#next-round-button {
+#next-round-button,
+#donate-button {
     padding: 2vh 5vh;
     font-size: 4vw;
     color: #fff;
@@ -151,7 +152,8 @@ body {
     transition: background-color 0.3s ease;
 }
 
-#next-round-button:hover {
+#next-round-button:hover,
+#donate-button:hover {
     background-color: #1976d2;
 }
 
