@@ -1,12 +1,23 @@
-window.Telegram.WebApp.ready();
+function showError(message) {
+    const errorModal = document.createElement('div');
+    errorModal.className = 'error-modal';
+    
+    errorModal.innerHTML = `
+        <div>
+            <p>${message}</p>
+            <button onclick="this.parentElement.parentElement.remove()">Закрыть</button>
+        </div>
+    `;
+    
+    document.body.appendChild(errorModal);
+}
 
 function callDonat() {
-  //Telegram.WebApp.sendData('/pay');
-  //window.Telegram.WebApp.sendData('/pay');
-  const invoiceUrl = 'https://example.com/invoice'; // Замените на реальный URL вашего инвойса
-
-    // Открыть инвойс
-  window.Telegram.WebApp.openInvoice(invoiceUrl);
+    if (window.Telegram && window.Telegram.WebApp) {
+        window.Telegram.WebApp.sendData('/pay');
+    } else {
+        showError('Telegram Web App API не доступен');
+    }
 }
 
 let playerScore = 0;
@@ -37,7 +48,7 @@ function determineWinner(playerChoice, computerChoice) {
 
 function updateScoreboard() {
     const scoreboard = document.getElementById('result-message');
-    scoreboard.innerHTML = `Счёт6:<br>Вы - ${playerScore}, Компьютер - ${computerScore}<br>Раунд ${roundsPlayed + 1}`;
+    scoreboard.innerHTML = `Счёт7:<br>Вы - ${playerScore}, Компьютер - ${computerScore}<br>Раунд ${roundsPlayed + 1}`;
 }
 
 function checkGameWinner() {
@@ -113,6 +124,7 @@ function resetGame() {
     startNextRound();
 }
 
+window.Telegram.WebApp.ready();
 
 particlesJS("particles-js", {
     "particles": {
