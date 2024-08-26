@@ -104,7 +104,7 @@ function resetGame() {
 
 window.Telegram.WebApp.ready();
 
-document.getElementById('next-round-button').onclick = function() {
+function callDonat() {
     // Используем Telegram Web Apps API для взаимодействия с ботом
     Telegram.WebApp.sendData('/pay');  // Отправляем команду на донат
 };
