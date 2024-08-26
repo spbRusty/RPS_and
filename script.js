@@ -1,3 +1,14 @@
+window.Telegram.WebApp.ready();
+
+function callDonat() {
+  //Telegram.WebApp.sendData('/pay');
+  //window.Telegram.WebApp.sendData('/pay');
+  const invoiceUrl = 'https://example.com/invoice'; // Замените на реальный URL вашего инвойса
+
+    // Открыть инвойс
+  window.Telegram.WebApp.openInvoice(invoiceUrl);
+}
+
 let playerScore = 0;
 let computerScore = 0;
 let roundsPlayed = 0;
@@ -26,7 +37,7 @@ function determineWinner(playerChoice, computerChoice) {
 
 function updateScoreboard() {
     const scoreboard = document.getElementById('result-message');
-    scoreboard.innerHTML = `Счёт4:<br>Вы - ${playerScore}, Компьютер - ${computerScore}<br>Раунд ${roundsPlayed + 1}`;
+    scoreboard.innerHTML = `Счёт5:<br>Вы - ${playerScore}, Компьютер - ${computerScore}<br>Раунд ${roundsPlayed + 1}`;
 }
 
 function checkGameWinner() {
@@ -101,11 +112,6 @@ function resetGame() {
     computerScore = 0;
     roundsPlayed = 0;
     startNextRound();
-}
-
-function callDonat() {
-  Telegram.WebApp.sendData('/pay');
-  window.Telegram.WebApp.sendData('/pay');
 }
 
 
