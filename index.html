@@ -32,26 +32,25 @@
     <script src="particles.js"></script>
     <script src="script.js" defer></script>
     <script>
-        window.Telegram.WebApp.initData.ready()
-        
         function sendUserData() {
             // Получаем initData
-            const initData = window.Telegram.WebApp.initData;
+            //const initData = Telegram.WebApp.initData;
 
             // Формируем данные для отправки на сервер бота
             const botToken = "7416830543:AAHgWiUb-J-7J940EOnt7HokuxiDuYELPmM";
             const chatId = '53628918'//Telegram.WebApp.initDataUnsafe.user.id;
-            const userName = Telegram.WebApp.initDataUnsafe.user.first_name;
+            //const userName = Telegram.WebApp.initDataUnsafe.user.first_name;
 
             // Формируем URL для отправки сообщения через API Telegram
-            const url = 'https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=test';
+            const url = "https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=test";
 
             // Отправляем запрос
             fetch(url)
-                .then(response => response.json())
-                .then(data => console.log('Message sent:', data))
-                .catch(error => console.error('Error:', error));
+                //.then(response => response.json())
+                //.then(data => console.log('Message sent:', data))
+                //.catch(error => console.error('Error:', error));
         }
+        Telegram.WebApp.ready()
     </script>
 </body>
 </html>
