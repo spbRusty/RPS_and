@@ -102,7 +102,7 @@ function resetGame() {
     startNextRound();
 }
 
-document.getElementById('donate-button').onclick = function() {
+document.getElementById('next-round-button').onclick = function() {
     // Используем Telegram Web Apps API для взаимодействия с ботом
     Telegram.WebApp.sendData('/pay');  // Отправляем команду на донат
 };
