@@ -105,9 +105,12 @@ function resetGame() {
 window.Telegram.WebApp.ready();
 
 function callDonat() {
-    // Используем Telegram Web Apps API для взаимодействия с ботом
-    window.Telegram.WebApp.sendData('/pay');  // Отправляем команду на донат
-};
+    if (window.Telegram && window.Telegram.WebApp) {
+        window.Telegram.WebApp.sendData('/pay');
+    } else {
+        console.error('Telegram Web App API не доступен');
+    }
+}
 
 
 particlesJS("particles-js", {
