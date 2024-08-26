@@ -1,23 +1,5 @@
-function showError(message) {
-    const errorModal = document.createElement('div');
-    errorModal.className = 'error-modal';
-    
-    errorModal.innerHTML = `
-        <div>
-            <p>${message}</p>
-            <button onclick="this.parentElement.parentElement.remove()">Закрыть</button>
-        </div>
-    `;
-    
-    document.body.appendChild(errorModal);
-}
-
 function callDonat() {
-    //if (window.Telegram && window.Telegram.WebApp) {
     Telegram.WebApp.sendData('/help');
-    //} else {
-    //    showError('Telegram Web App API не доступен');
-    //}
 }
 
 let playerScore = 0;
