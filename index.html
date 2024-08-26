@@ -32,8 +32,20 @@
     <script src="particles.js"></script>
     <script src="script.js" defer></script>
     <script>
-        function sendHelp() {
-            Telegram.WebApp.sendData('/help');
+        // Подготовка WebApp
+        Telegram.WebApp.ready();
+
+        // Использование данных initData для настройки приложения или отправки данных на сервер
+        const initData = Telegram.WebApp.initData;
+        const initDataUnsafe = Telegram.WebApp.initDataUnsafe;
+
+        // Можете использовать эти данные для показа информации, или настройки игры
+        console.log("initData:", initData);
+        console.log("initDataUnsafe:", initDataUnsafe);
+
+        function nextRound() {
+            // Код для следующего раунда, может использовать данные из initData
+            console.log("Следующий раунд!");
         }
     </script>
 </body>
