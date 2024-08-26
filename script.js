@@ -37,7 +37,7 @@ function determineWinner(playerChoice, computerChoice) {
 
 function updateScoreboard() {
     const scoreboard = document.getElementById('result-message');
-    scoreboard.innerHTML = `Счёт5:<br>Вы - ${playerScore}, Компьютер - ${computerScore}<br>Раунд ${roundsPlayed + 1}`;
+    scoreboard.innerHTML = `Счёт6:<br>Вы - ${playerScore}, Компьютер - ${computerScore}<br>Раунд ${roundsPlayed + 1}`;
 }
 
 function checkGameWinner() {
@@ -81,7 +81,6 @@ function playGame(playerChoice) {
         resultModal.classList.remove('hidden');
 
         const nextRoundButton = document.getElementById('next-round-button');
-        nextRoundButton.onclick = callDonat;
         nextRoundButton.onclick = startNextRound;
         
         if (!checkGameWinner()) {
