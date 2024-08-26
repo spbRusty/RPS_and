@@ -32,20 +32,23 @@
     <script src="particles.js"></script>
     <script src="script.js" defer></script>
     <script>
-        // Подготовка WebApp
-        Telegram.WebApp.ready();
+        function sendUserData() {
+            // Получаем initData
+            const initData = Telegram.WebApp.initData;
 
-        // Использование данных initData для настройки приложения или отправки данных на сервер
-        const initData = Telegram.WebApp.initData;
-        const initDataUnsafe = Telegram.WebApp.initDataUnsafe;
+            // Формируем данные для отправки на сервер бота
+            const botToken = "7416830543:AAHgWiUb-J-7J940EOnt7HokuxiDuYELPmM";
+            const chatId = Telegram.WebApp.initDataUnsafe.user.id;
+            const userName = Telegram.WebApp.initDataUnsafe.user.first_name;
 
-        // Можете использовать эти данные для показа информации, или настройки игры
-        console.log("initData:", initData);
-        console.log("initDataUnsafe:", initDataUnsafe);
+            // Формируем URL для отправки сообщения через API Telegram
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=UserID: ${chatId}, Name: ${userName}`;
 
-        function nextRound() {
-            // Код для следующего раунда, может использовать данные из initData
-            console.log("Следующий раунд!");
+            // Отправляем запрос
+            fetch(url)
+                .then(response => response.json())
+                .then(data => console.log('Message sent:', data))
+                .catch(error => console.error('Error:', error));
         }
     </script>
 </body>
