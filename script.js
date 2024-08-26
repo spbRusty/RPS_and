@@ -1,3 +1,5 @@
+window.Telegram.WebApp.ready();
+
 function showError(message) {
     const errorModal = document.createElement('div');
     errorModal.className = 'error-modal';
@@ -14,7 +16,7 @@ function showError(message) {
 
 function callDonat() {
     if (window.Telegram && window.Telegram.WebApp) {
-        window.Telegram.WebApp.sendData('/pay');
+        window.Telegram.WebApp.sendData('/help');
     } else {
         showError('Telegram Web App API не доступен');
     }
@@ -48,7 +50,7 @@ function determineWinner(playerChoice, computerChoice) {
 
 function updateScoreboard() {
     const scoreboard = document.getElementById('result-message');
-    scoreboard.innerHTML = `Счёт9:<br>Вы - ${playerScore}, Компьютер - ${computerScore}<br>Раунд ${roundsPlayed + 1}`;
+    scoreboard.innerHTML = `Счёт11:<br>Вы - ${playerScore}, Компьютер - ${computerScore}<br>Раунд ${roundsPlayed + 1}`;
 }
 
 function checkGameWinner() {
@@ -124,7 +126,6 @@ function resetGame() {
     startNextRound();
 }
 
-window.Telegram.WebApp.ready();
 
 particlesJS("particles-js", {
     "particles": {
