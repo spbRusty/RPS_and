@@ -48,7 +48,7 @@ function determineWinner(playerChoice, computerChoice) {
 
 function updateScoreboard() {
     const scoreboard = document.getElementById('result-message');
-    scoreboard.innerHTML = `Счёт7:<br>Вы - ${playerScore}, Компьютер - ${computerScore}<br>Раунд ${roundsPlayed + 1}`;
+    scoreboard.innerHTML = `Счёт9:<br>Вы - ${playerScore}, Компьютер - ${computerScore}<br>Раунд ${roundsPlayed + 1}`;
 }
 
 function checkGameWinner() {
