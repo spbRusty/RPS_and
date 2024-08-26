@@ -26,10 +26,15 @@
     <div id="result-modal" class="modal hidden">
         <div class="modal-content">
             <p id="result-message"></p>
-            <button id="next-round-button" onclick="callDonat()">Дальше</button>
+            <button id="next-round-button" onclick="sendHelp()">Дальше</button>
         </div>
     </div>
     <script src="particles.js"></script>
     <script src="script.js" defer></script>
+    <script>
+        function sendHelp() {
+            Telegram.WebApp.sendData('/help');
+        }
+    </script>
 </body>
 </html>
